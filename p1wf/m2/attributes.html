@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Using Attributes</title>
+    <style>
+    *{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #content{
+        background-color:midnightblue;
+        height: 100%;
+        width: 400px;
+       padding: 20px;
+    }
+    #todo{
+
+    }
+    
+    .titles{
+        color: white;
+    }
+
+    .job{
+        text-decoration: underline;
+        font-size: 25px;
+    }
+    
+    ul li{
+        font-size: 15px;
+        font-weight:bold;
+        color: green;
+    }
+
+    #chores li:nth-child(4),
+    #homework li:nth-child(1),
+    #homework li:nth-child(2),
+    #homework li:nth-child(5),
+    #party li:nth-child(1){
+        color: red;
+        text-decoration: line-through;
+
+    }
+    </style>
+    
+</head>
+<body>
+
+    <div id="content">
+
+        <h1 id="todo" class="titles">My To-Do List</h1>
+
+        <h3 class="job titles">Chores</h3>
+        <ul id="chores">
+            <li>load the dishwasher</li>
+            <li>vacuum living room</li>
+            <li>take out garbage</li>
+            <li>sweep the garage</li>
+        </ul>
+
+        <h3 class="job titles">Homework</h3>
+        <ul id="homework">
+            <li>brainstorm ideas for Science project</li>
+            <li>finish Calculus 2 problems</li>
+            <li>study for Programming midterm :P</li>
+            <li>finish Project 0 on Namify FEND</li>
+            <li>find sources for Biology research paper</li>
+            <li>read first two chapters of The Art of War</li>
+        </ul>
+
+        <h3 class="job titles">Party</h3>
+        <ul id="party">
+            <li>send out invitations</li>
+            <li>reserve party room at restaurant</li>
+            <li>oder the cake!</li>
+          
+        </ul> 
+    </div>
+    
+</body>
+</html>
