@@ -16,7 +16,7 @@ body {
     border-radius: 4px 4px 0px 0px;
     border: 1px solid #ddd;
     padding: 0px 16px;
-    background-image: url("profile-placeholder.svg");
+   background-image: url("profile-placeholder.svg");
 }
 .name {
     padding-top: calc(475px * 0.40);
