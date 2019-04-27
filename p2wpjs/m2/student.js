@@ -627,3 +627,104 @@ for (var x = 0; x < 26; x++) {
     console.log(`${x} - ${y}`);
   }
 }
+
+/*
+ * Programming Quiz: Laugh it Off 1 (5-1)
+ */
+
+// your code goes here
+
+function laugh() {
+  return "hahahahahahahahahaha!";
+}
+
+console.log(laugh());
+
+/*
+ * Programming Quiz: Laugh it Off 2 (5-2)
+ *
+ * Write a function called `laugh` with a parameter named `num` that represents the number of "ha"s to return.
+ *
+ * Note:
+ *  - make sure your the final character is an exclamation mark ("!")
+ *  - make sure that your function produces the correct results when it is called multiple times
+ */
+function LaughManyTimes(num) {
+  var ha = "";
+
+  for (var i = num; i > 0; i--) {
+    ha += "ha";
+  }
+
+  return ha;
+}
+
+console.log(LaughManyTimes(3));
+
+/*
+ * Programming Quiz: Build A Triangle (5-3)
+ */
+
+// creates a line of * for a given length
+function makeLine(length) {
+  var line = "";
+  for (var j = 1; j <= length; j++) {
+    line += "* ";
+  }
+  return line + "\n";
+}
+
+// your code goes here.  Make sure you call makeLine() in your own code.
+
+function buildTriangle(num) {
+  var log = "";
+  for (var k = 1; k <= num; k++) {
+    log += makeLine(k);
+  }
+  return log;
+}
+
+// test your code by uncommenting the following line
+console.log(buildTriangle(10));
+
+/*
+ * Programming Quiz: Laugh (5-4)
+ */
+/* finish the function expression */
+var annonLaugh = function(num) {
+  var ha = "";
+
+  for (var i = num; i > 0; i--) {
+    ha += "ha";
+  }
+
+  return ha;
+};
+
+console.log(annonLaugh(10));
+/*
+ * Programming Quiz: Cry (5-5)
+ */
+
+// your code goes here
+
+var cry = function CryManyTimes() {
+  return "bohoo!";
+};
+
+console.log(cry());
+
+/*
+ * Programming Quiz: Inline Functions (5-6)
+ */
+
+// don't change this code
+function emotions(myString, myFunc) {
+  console.log("I am " + myString + ", " + myFunc(2));
+}
+
+// your code goes here
+// call the emotions function here and pass in an
+// inline function expression
+
+emotions("happy", annonLaugh);
