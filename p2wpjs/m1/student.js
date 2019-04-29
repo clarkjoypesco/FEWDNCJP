@@ -728,3 +728,53 @@ function emotions(myString, myFunc) {
 // inline function expression
 
 emotions("happy", annonLaugh);
+
+/*
+ * Programming Quiz: NamiFamily (6-1)
+ */
+
+// your code goes here
+
+var NamiFamily = ["Cj", "Joyce", "Mommy", "Daddy"];
+console.log(NamiFamily);
+/*
+ * Programming Quiz: Building the Crew (6-2)
+ */
+
+var captain = "Mal";
+var second = "Zoe";
+var pilot = "Wash";
+var companion = "Inara";
+var mercenary = "Jayne";
+var mechanic = "Kaylee";
+
+// your code goes here
+var crew = [captain, second, pilot, companion, mercenary, mechanic];
+console.log(crew);
+
+/*
+ * Programming Quiz: The Price is Right (6-3)
+ */
+
+var prices = [1.23, 48.11, 90.11, 8.5, 9.99, 1.0, 1.1, 67.0];
+console.log(prices);
+// your code goes here
+prices[0] = 3.56;
+prices[2] = 95.32;
+prices[6] = 2.0;
+console.log(prices);
+
+/*
+ * Programming Quiz: Colors of the Rainbow (6-4)
+ *
+ * Use only the splice() method to modify the rainbow variable:
+ *  - remove "Blackberry"
+ *  - add "Yellow" and "Green"
+ *  - add "Purple"
+ */
+
+var rainbow = ["Red", "Orange", "Blackberry", "Blue"];
+
+rainbow.splice(-2, 1, "Yellow", "Green");
+console.log(rainbow);
+// your code goes here
