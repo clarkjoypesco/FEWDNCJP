@@ -1135,3 +1135,202 @@ var donuts = [
 donuts.forEach(function(donut) {
   console.log(`${donut.type} donuts cost $${donut.cost} each`);
 });
+
+/*
+ * Programming Quiz: Using Let and Const (1-1)
+ */
+
+const CHARACTER_LIMIT = 255;
+let posts = [
+  "#DeepLearning transforms everything from self-driving cars to language translations. AND it's our new Nanodegree!",
+  "Within your first week of the VR Developer Nanodegree Program, you'll make your own virtual reality app",
+  "I just finished @udacity's Front-End Web Developer Nanodegree. Check it out!"
+];
+
+// prints posts to the console
+function displayPosts() {
+  for (let i = 0; i < posts.length; i++) {
+    console.log(posts[i].slice(0, CHARACTER_LIMIT));
+  }
+}
+
+displayPosts();
+
+/*
+ * Instructions: Change the `greeting` string to use a template literal.
+ */
+
+const myName = "KuyasLab";
+const greeting = `Hello, my name is ${myName}`;
+console.log(greeting);
+
+/*
+ * Programming Quiz: Build an HTML Fragment (1-2)
+ */
+
+const cheetah = {
+  name: "Cheetah",
+  scientificName: "Acinonyx jubatus",
+  lifespan: "10-12 years",
+  speed: "68-75 mph",
+  diet: "carnivore",
+  summary:
+    "Fastest mammal on land, the cheetah can reach speeds of 60 or perhaps even 70 miles (97 or 113 kilometers) an hour over short distances. It usually chases its prey at only about half that speed, however. After a chase, a cheetah needs half an hour to catch its breath before it can eat.",
+  fact:
+    "Cheetahs have “tear marks” that run from the inside corners of their eyes down to the outside edges of their mouth."
+};
+
+// creates an animal trading card
+function createAnimalTradingCardHTML(animal) {
+  const cardHTML = `<div class="card">
+    <h3 class="name">
+    ${animal.name}
+    </h3>
+    <img src="${animal.name}.jpg" 
+    alt="${animal.name}"
+    class="picture">
+    <div class="description">
+    <p class="fact">
+    ${animal.fact}
+    </p>
+    <ul class="details">
+    <li><span class="bold">Scientific Name</span>:
+    ${animal.scientificName}
+    </li>
+    <li><span class="bold">Average Lifespan</span>:
+    ${animal.lifespan}
+    </li>
+    <li><span class="bold">Average Speed</span>:
+    ${animal.speed}
+    </li>
+    <li><span class="bold">Diet</span>:
+    ${animal.diet}
+    </li>
+    </ul>
+    <p class="brief">
+    ${animal.summary}
+    </p>
+    </div>
+    </div>`;
+
+  return cardHTML;
+}
+
+console.log(createAnimalTradingCardHTML(cheetah));
+
+/*
+ * Programming Quiz: Destructuring Arrays (1-3)
+ *
+ * Use destructuring to initialize the variables `one`, `two`, and `three`
+ * with the colors from the `things` array.
+ */
+
+const things = [
+  "red",
+  "basketball",
+  "paperclip",
+  "green",
+  "computer",
+  "earth",
+  "udacity",
+  "blue",
+  "dogs"
+];
+const [one, , , two, , , , three] = things;
+
+const colors = `List of Colors
+1. ${one}
+2. ${two}
+3. ${three}`;
+
+console.log(colors);
+
+// let type = 'quartz';
+// let color = 'rose';
+// let carat = 21.29;
+
+// const gemstone = {
+//   type,
+//   color,
+//   carat,
+//   calculateWorth: function() {
+//     // will calculate worth of gemstone based on type, color, and carat
+//   }
+// };
+
+// //shorthand es6 es15 harmony
+// let gemstone = {
+//   type,
+//   color,
+//   carat,
+//   calculateWorth() { ... }
+// };
+
+/*
+ * Programming Quiz: Writing a For...of Loop (1-4)
+ */
+
+const days = [
+  "sunday",
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday"
+];
+
+// your code goes here
+
+for (let day of days) {
+  day = day.slice(0, 1).toUpperCase() + day.slice(1);
+  console.log(day);
+}
+
+const books = [
+  "Don Quixote",
+  "The Hobbit",
+  "Alice in Wonderland",
+  "Tale of Two Cities"
+];
+console.log(...books);
+/*
+ * Instructions: Use the spread operator to combine the `fruits` and `vegetables` arrays into the `produce` array.
+ */
+
+const fruits = ["apples", "bananas", "pears"];
+const vegetables = ["corn", "potatoes", "carrots"];
+
+const produce = [...fruits, ...vegetables];
+
+console.log(produce);
+
+//Rest Parameter
+const order = [20.17, 18.67, 1.5, "cheese", "eggs", "milk", "bread"];
+const [totalCost, subtotal, tax, ...items] = order;
+console.log(totalCost, subtotal, tax, items);
+
+/*
+ * Programming Quiz: Using the Rest Parameter (1-5)
+ */
+
+// your code goes here
+function sum(...nums) {
+  let total = 0;
+  for (const num of nums) {
+    total += num;
+  }
+  return total;
+}
+
+function average(...nums) {
+  let avg = 0;
+  avg = sum(...nums) / nums.length;
+  return avg;
+}
+//console.log(sum(2, 6));
+//console.log(sum(2, 3, 3, 5, 7, 10));
+//console.log(average(2, 6));
+console.log(average(2, 3, 3, 5, 7, 10));
+// console.log(average(7, 1432, 12, 13, 100));
+// console.log(average());
