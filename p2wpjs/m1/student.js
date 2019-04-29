@@ -978,3 +978,143 @@ for (var row = 0; row < numbers.length; row++) {
   }
 }
 console.log(numbers);
+
+typeof "hello"; // returns "string"
+typeof true; // returns "boolean"
+typeof [1, 2, 3]; // returns "object" (Arrays are a type of object)
+typeof function hello() {}; // returns "function"
+
+/*
+ * Programming Quiz: Umbrella (7-1)
+ */
+
+var umbrella = {
+  color: "pink",
+  isOpen: true,
+  open: function() {
+    if (umbrella.isOpen === true) {
+      return "The umbrella is already opened!";
+    } else {
+      umbrella.isOpen = true;
+      return "Julia opens the umbrella!";
+    }
+  },
+  close: function() {
+    if (umbrella.isOpen === false) {
+      return "The umbrella is already closed!";
+    } else {
+      umbrella.isOpen = false;
+      return "Julia closes the umbrella!";
+    }
+  }
+
+  // your code goes here
+};
+console.log(umbrella.open());
+
+console.log(umbrella.close());
+
+var sister = {
+  name: "Sarah",
+  age: 23,
+  parents: ["alice", "andy"],
+  siblings: ["julia"],
+  favoriteColor: "purple",
+  pets: true,
+  paintPicture: function() {
+    return "Sarah paints!";
+  }
+};
+
+console.log(sister.paintPicture());
+
+var myObj = {
+  color: "orange",
+  shape: "sphere",
+  type: "food",
+  eat: function() {
+    return "yummy";
+  }
+};
+
+myObj.eat(); // method
+myObj.color; // property
+
+/*
+ * Programming Quiz: Menu Items (7-2)
+ */
+
+// your code goes here
+
+var breakfast = {
+  name: "The Lumberjack",
+  price: "$9.95",
+  ingredients: ["eggs", "sausage", "toast", "hashbrowns", "pancakes"]
+};
+
+console.log(breakfast.name);
+console.log(breakfast.price);
+console.log(breakfast.ingredients);
+
+/*
+ * Programming Quiz: Bank Accounts 1 (7-3)
+ */
+
+var savingsAccount = {
+  balance: 1000,
+  interestRatePercent: 1,
+  deposit: function addMoney(amount) {
+    if (amount > 0) {
+      savingsAccount.balance += amount;
+    }
+  },
+  withdraw: function removeMoney(amount) {
+    var verifyBalance = savingsAccount.balance - amount;
+    if (amount > 0 && verifyBalance >= 0) {
+      savingsAccount.balance -= amount;
+    }
+  },
+  printAccountSummary: function() {
+    return `Welcome!\nYour balance is currently $${
+      savingsAccount.balance
+    } and your interest rate is 1%.`;
+  }
+};
+
+console.log(savingsAccount.printAccountSummary());
+
+/*
+ * Programming Quiz: Facebook Friends (7-5)
+ */
+
+// your code goes here
+
+var facebookProfile = {
+  name: "KuyasLab",
+  friends: 5,
+  messages: ["hello", "hi", "hey", "how are you"],
+  postMessage: function addMessage(message) {
+    facebookProfile.messages.push(message);
+  },
+  deleteMessage: function removeMessage(index) {
+    facebookProfile.messages.splice(index, 1);
+  },
+  addFriend: function() {
+    facebookProfile.friends++;
+  },
+  removeFriend: function() {
+    facebookProfile.friends--;
+  }
+};
+console.log(facebookProfile.name);
+console.log(facebookProfile.friends);
+console.log(facebookProfile.messages);
+console.log(facebookProfile.postMessage("kumusta na?"));
+console.log(facebookProfile.messages);
+console.log(facebookProfile.deleteMessage(-2));
+console.log(facebookProfile.messages);
+console.log(facebookProfile.addFriend());
+console.log(facebookProfile.friends);
+console.log(facebookProfile.removeFriend());
+console.log(facebookProfile.removeFriend());
+console.log(facebookProfile.friends);
