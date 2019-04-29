@@ -833,8 +833,68 @@ console.log(sortme);
 
 var donuts = ["jelly donut", "chocolate donut", "glazed donut"];
 
+//array foreach method
 donuts.forEach(function(donut) {
   donut += " hole";
   donut = donut.toUpperCase();
   console.log(donut);
 });
+
+words = ["cat", "in", "hat"];
+words.forEach(function(word, num, all) {
+  console.log("Word " + num + " in " + all.toString() + " is " + word);
+});
+
+/*
+ * Programming Quiz: Another Type of Loop (6-8)
+ *
+ * Use the existing `test` variable and write a `forEach` loop
+ * that adds 100 to each number that is divisible by 3.
+ *
+ * Things to note:
+ *  - you must use an `if` statement to verify code is divisible by 3
+ *  - you can use `console.log` to verify the `test` variable when you're finished looping
+ */
+
+var tests = [
+  12,
+  929,
+  11,
+  3,
+  199,
+  1000,
+  7,
+  1,
+  24,
+  37,
+  4,
+  19,
+  300,
+  3775,
+  299,
+  36,
+  209,
+  148,
+  169,
+  299,
+  6,
+  109,
+  20,
+  58,
+  139,
+  59,
+  3,
+  1,
+  139
+];
+
+// Write your code here
+//array foreach method
+tests.forEach(function(test) {
+  test = test % 3 === 0 ? AddHundred(test, true) : AddHundred(test, false);
+  console.log(test);
+});
+
+function AddHundred(num, istrue) {
+  return (num = istrue ? (num += 100) : num);
+}
