@@ -898,3 +898,11 @@ tests.forEach(function(test) {
 function AddHundred(num, istrue) {
   return (num = istrue ? (num += 100) : num);
 }
+
+var donuts = ["jelly donut", "chocolate donut", "glazed donut"];
+
+var improvedDonuts = donuts.map(function(donut) {
+  donut += " hole";
+  donut = donut.toUpperCase();
+  return donut;
+});
