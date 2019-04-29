@@ -778,3 +778,63 @@ var rainbow = ["Red", "Orange", "Blackberry", "Blue"];
 rainbow.splice(-2, 1, "Yellow", "Green");
 console.log(rainbow);
 // your code goes here
+
+/*
+ * Programming Quiz: Quidditch Cup (6-5)
+ */
+
+// your code goes here
+function hasEnoughPlayers(team) {
+  return team.length >= 7;
+}
+
+var team = [
+  "Oliver Wood",
+  "Angelina Johnson",
+  "Katie Bell",
+  "Alicia Spinnet",
+  "George Weasley",
+  "Fred Weasley",
+  "Harry Potter"
+];
+console.log(hasEnoughPlayers(team));
+
+/*
+ * Programming Quiz: Joining the Crew (6-6)
+ */
+
+var captain = "Mal";
+var second = "Zoe";
+var pilot = "Wash";
+var companion = "Inara";
+var mercenary = "Jayne";
+var mechanic = "Kaylee";
+
+var crew = [captain, second, pilot, companion, mercenary, mechanic];
+
+var doctor = "Simon";
+var sister = "River";
+var shepherd = "Book";
+
+// your code goes here
+crew.push(doctor, sister, shepherd);
+console.log(crew);
+
+var reverseMe = ["h", "e", "l", "l", "o"];
+console.log(reverseMe);
+reverseMe.reverse();
+
+console.log(reverseMe);
+
+var sortme = [2, 1, 10, 7, 6];
+
+sortme.sort();
+console.log(sortme);
+
+var donuts = ["jelly donut", "chocolate donut", "glazed donut"];
+
+donuts.forEach(function(donut) {
+  donut += " hole";
+  donut = donut.toUpperCase();
+  console.log(donut);
+});
