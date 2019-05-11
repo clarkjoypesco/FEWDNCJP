@@ -1287,6 +1287,7 @@ for (let day of days) {
   console.log(day);
 }
 
+/// spread operator
 const books = [
   "Don Quixote",
   "The Hobbit",
