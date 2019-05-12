@@ -320,3 +320,85 @@ function expandArray() {
 const expand = expandArray();
 
 console.log(expand());
+
+const button = document.getElementById("button");
+button.addEventListener(
+  "click",
+  (function() {
+    let count = 0;
+
+    return function() {
+      count += 1;
+
+      if (count === 2) {
+        alert("This alert appears every other press!");
+        count = 0;
+      }
+    };
+  })()
+);
+
+// function SoftwareDeveloper() {
+//   this.favoriteLanguage = "JavaScript";
+// }
+
+// let engineer = new SoftwareDeveloper();
+// let programmer = new SoftwareDeveloper();
+
+// console.log(engineer);
+// SoftwareDeveloper { favoriteLanguage: 'JavaScript' }
+
+// console.log(programmer);
+// SoftwareDeveloper { favoriteLanguage: 'JavaScript' }
+
+function SoftwareDeveloper(name) {
+  this.favoriteLanguage = "JavaScript";
+  this.name = name;
+}
+
+let instructor = new SoftwareDeveloper("Andrew");
+
+console.log(instructor);
+// SoftwareDeveloper { favoriteLanguage: 'JavaScript', name: 'Andrew' }
+
+let teacher = new SoftwareDeveloper("Richard");
+
+console.log(teacher);
+// SoftwareDeveloper { favoriteLanguage: 'JavaScript', name: 'Richard' }
+
+/*
+
+Now it's your turn to create a constructor function. Declare a
+`Sandwich` constructor function that takes three parameters:
+
+1. `bread` (string) - the type of bread for the sandwich (e.g. "Wheat")
+2. `meat` (array) - the meats to put on the sandwich
+   (e.g. `[]` for a vegetarian sandwich!)
+3. `vegetables` (array) - the vegetables to include in the sandwich
+
+*/
+
+function Sandwich(bread, meat, vegetables) {
+  this.bread = bread;
+  this.meat = meat;
+  this.vegetables = vegetables;
+}
+
+let burger = new Sandwich("Breadloaf", "Bacon", ["Tomato", "Pichay", "Onions"]);
+
+console.log(burger);
+
+function Finch(name) {
+  this.kingdom = "Animalia";
+  this.name = name;
+}
+
+function Sparrow(name) {
+  this.kingdom = "Animalia";
+  this.name = name;
+}
+
+const atticus = new Finch("Atticus");
+const jack = new Sparrow("Jack");
+
+//Constructor Functions
