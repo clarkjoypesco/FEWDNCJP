@@ -506,3 +506,94 @@ const car = {
 // var boundDrive = drive.bind(car);
 // boundDrive();
 driver.displayName.bind(car)();
+
+//==========PROTOTYPAL INHERITANCE
+
+// function Dog(age, weight, name) {
+//   this.age = age;
+//   this.weight = weight;
+//   this.name = name;
+//   this.bark = function () {
+//     console.log(`${this.name} says woof!`);
+//   };
+// }
+
+function Dog(age, weight, name) {
+  this.age = age;
+  this.weight = weight;
+  this.name = name;
+}
+
+Dog.prototype.bark = function() {
+  console.log(`${this.name} says woof!`);
+};
+
+dog1 = new Dog(2, 60, "Java");
+
+dog2 = new Dog(4, 55, "Jodi");
+
+dog1.bark();
+
+dog2.bark();
+
+//-----------has own property
+
+function Phone() {
+  this.operatingSystem = "Android";
+}
+
+Phone.prototype.screenSize = 6;
+
+const myPhone = new Phone();
+
+const own = myPhone.hasOwnProperty("operatingSystem");
+
+console.log(own);
+// true
+
+const inherited = myPhone.hasOwnProperty("screenSize");
+
+console.log(inherited);
+// false
+
+//-------------Is prototype of
+
+const rodent = {
+  favoriteFood: "cheese",
+  hasTail: true
+};
+
+function Mouse() {
+  this.favoriteFood = "cheese";
+}
+
+Mouse.prototype = rodent;
+
+const ralph = new Mouse();
+
+const result = rodent.isPrototypeOf(ralph);
+
+console.log(result);
+// true
+
+//--------------Object.getPrototypeOf()
+const myPrototype = Object.getPrototypeOf(ralph);
+
+console.log(myPrototype);
+// { favoriteFood: 'cheese', hasTail: true }
+
+//=========Constructor Property
+
+function Longboard() {
+  this.material = "bamboo";
+}
+
+const board = new Longboard();
+
+console.log(board.constructor);
+
+// function Longboard() {
+//   this.material = 'bamboo';
+// }
+console.log(ralph.constructor);
+// function Object() { [native code] }
