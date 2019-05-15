@@ -597,3 +597,96 @@ console.log(board.constructor);
 // }
 console.log(ralph.constructor);
 // function Object() { [native code] }
+
+//=====Protypal Inheritance --> Subclass
+
+const bear = {
+  claws: true,
+  diet: "carnivore"
+};
+
+function PolarBear() {
+  // ...
+}
+
+PolarBear.prototype = bear;
+
+const snowball = new PolarBear();
+
+snowball.color = "white";
+snowball.favoriteDrink = "cola";
+
+console.log(snowball.claws);
+// true
+
+console.log(snowball.diet);
+// 'carnivore'
+
+function GuineaPig(name) {
+  this.name = name;
+  this.isCute = true;
+}
+
+const waffle = new GuineaPig("Waffle");
+
+function Car(color, year) {
+  this.color = color;
+  this.year = year;
+}
+
+Car.prototype.drive = function() {
+  console.log("Vroom vroom!");
+};
+
+// const car = new Car("silver", 1988);
+
+//--------Object.Create
+
+const mammal = {
+  vertebrate: true,
+  earBones: 3
+};
+
+const rabbit = Object.create(mammal);
+
+console.log(rabbit);
+// {}
+
+console.log(rabbit.__proto__ === mammal);
+// true
+
+console.log(rabbit.vertebrate);
+// true
+
+console.log(rabbit.earBones);
+// 3
+
+//-------Object Create Demo
+
+function Animal(name) {
+  this.name = name;
+}
+
+Animal.prototype.walk = function() {
+  console.log(`${this.name} walks!`);
+};
+
+function Cat(name) {
+  Animal.call(this, name);
+  this.lives = 9;
+}
+
+Cat.prototype = Object.create(Animal.prototype);
+
+Cat.prototype.constructor = Cat;
+
+Cat.prototype.meow = function() {
+  console.log("Meow!");
+};
+
+const bambi = new Cat("Bambi");
+
+bambi.meow();
+bambi.walk();
+
+bambi.name;
