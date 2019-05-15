@@ -402,3 +402,107 @@ const atticus = new Finch("Atticus");
 const jack = new Sparrow("Jack");
 
 //Constructor Functions
+
+//Using Call
+
+const mockingbird = {
+  title: "To Kill a Mockingbird",
+  describe: function() {
+    console.log(`${this.title} is a classic novel`);
+  }
+};
+
+mockingbird.describe();
+
+// 'To Kill a Mockingbird is a classic novel'
+
+const pride = {
+  title: "Pride and Prejudice"
+};
+
+mockingbird.describe.call(pride);
+// 'Pride and Prejudice is a classic novel'
+
+//Using Apply
+function multiply(n1, n2) {
+  return n1 * n2;
+}
+
+multiply.call(window, 3, 4);
+
+// 12
+
+multiply.apply(window, [3, 4]);
+
+// 12
+
+mockingbird.describe.apply(pride);
+
+// 'Pride and Prejudice is a classic novel'
+
+// Consider the following dave object, and the sayHello() function:
+
+const dave = {
+  name: "Dave"
+};
+
+function sayHello(message) {
+  console.log(`${message}, ${this.name}. You're looking well today.`);
+}
+
+sayHello.apply(dave, ["How are you?"]);
+
+// Write an expression that uses the call() method to produce the message: 'I'm Andrew and my favorite programming language is JavaScript.'
+
+const andrew = {
+  name: "Andrew"
+};
+
+function introduce(language) {
+  console.log(
+    `I'm ${this.name} and my favorite programming language is ${language}.`
+  );
+}
+introduce.apply(andrew, ["JavaScript"]);
+
+const dog = {
+  age: 5,
+  growOneYear: function() {
+    this.age += 1;
+  }
+};
+
+//using bind
+function invokeTwice(cb) {
+  cb();
+  cb();
+}
+
+const myGrow = dog.growOneYear.bind(dog);
+
+invokeTwice(myGrow);
+
+console.log(dog.age);
+// 7
+
+// Write an expression using bind() that allows us to "borrow" the displayName() method from driver for the car object to use.
+this.name = "Hello";
+const driver = {
+  name: "Danica",
+  displayName: function() {
+    console.log(`Name: ${this.name}`);
+  }
+};
+
+const car = {
+  name: "Fusion"
+};
+
+// driver.displayName(driver.displayName.bind(driver));
+// driver.displayName(driver.displayName.bind(car));
+// driver.displayName.bind(car.name);
+// driver.displayName.apply(car);
+// var drive = driver.displayName;
+// var boundDrive = drive.bind(car);
+// boundDrive();
+driver.displayName.bind(car)();
