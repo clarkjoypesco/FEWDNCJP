@@ -480,3 +480,143 @@ console.log(employees);
 
 employees.clear();
 console.log(employees);
+
+const members = new Map();
+
+members.set("Evelyn", 75.68);
+members.set("Liam", 20.16);
+members.set("Sophia", 0);
+members.set("Marcus", 10.25);
+
+console.log(members.has("Xavier"));
+console.log(members.has("Marcus"));
+console.log(members.get("Evelyn"));
+
+let iteratorObjForKeys = members.keys();
+iteratorObjForKeys.next();
+
+let iteratorObjForValues = members.values();
+iteratorObjForValues.next();
+
+for (const member of members) {
+  console.log(member);
+}
+
+/*
+ * Using array destructuring, fix the following code to print the keys and values of the `members` Map to the console.
+ */
+
+const membro = new Map();
+
+membro.set("Evelyn", 75.68);
+membro.set("Liam", 20.16);
+membro.set("Sophia", 0);
+membro.set("Marcus", 10.25);
+
+for (const member of membro) {
+  member.join();
+  console.log(member);
+}
+membro.forEach((value, key) => console.log(key, value));
+
+//Weakmap
+
+let book1 = { title: "Pride and Prejudice", author: "Jane Austen" };
+let book2 = { title: "The Catcher in the Rye", author: "J.D. Salinger" };
+let book3 = { title: "Gulliver’s Travels", author: "Jonathan Swift" };
+
+const library = new WeakMap();
+library.set(book1, true);
+library.set(book2, false);
+library.set(book3, true);
+
+console.log(library);
+book1 = null;
+console.log(library);
+
+//Promises
+// new Promise(function (resolve, reject) {
+//   window.setTimeout(function createSundae(flavor = 'chocolate') {
+//       const sundae = {};
+//       // request ice cream
+//       // get cone
+//       // warm up ice cream scoop
+//       // scoop generous portion into cone!
+//       if ( /* iceCreamConeIsEmpty(flavor) */ ) {
+//           reject(`Sorry, we're out of that flavor :-(`);
+//       }
+
+//       sundae.then(function(sundae) {
+//         console.log(`Time to eat my delicious ${sundae}`);
+//     }, function(msg) {
+//         console.log(msg);
+//         self.goCry(); // not a real method
+//     });
+//       resolve(sundae);
+//   }, Math.random() * 2000);
+// });
+
+// var richard = { status: "looking for work" };
+// var agent = new Proxy(richard, {});
+
+// agent.status; // returns 'looking for work'
+
+//Get Trap
+/*
+const richard = { status: "looking for work" };
+const handler = {
+  get(target, propName) {
+    console.log(target); // the `richard` object, not `handler` and not `agent`
+    console.log(propName); // the name of the property the proxy (`agent` in this case) is checking
+  }
+};
+const agent = new Proxy(richard, handler);
+agent.status; // logs out the richard object (not the agent object!) and the name of the property being accessed (`status`)
+*/
+
+// Accessing the Target object from inside the proxy
+/*
+const richard = {status: 'looking for work'};
+const handler = {
+    get(target, propName) {
+        console.log(target);
+        console.log(propName);
+        return target[propName];
+    }
+}; 
+const agent = new Proxy(richard, handler);
+agent.status; // (1)logs the richard object, (2)logs the property being accessed, (3)returns the text in richard.status
+*/
+
+// Having the proxy return info, directly
+/*
+const richard = {status: 'looking for work'};
+const handler = {
+    get(target, propName) {
+        return `He's following many leads, so you should offer a contract as soon as possible!`;
+    }
+};
+const agent = new Proxy(richard, handler);
+agent.status; // returns the text `He's following many leads, so you should offer a contract as soon as possible!`
+*/
+
+// If we want to intercept calls to change properties, then the set trap needs to be used!
+
+// The set trap is used for intercepting code that will change a property. The set trap receives:
+// the object it proxies
+// the property that is being set
+// the new value for the proxy
+/*
+const richard = {status: 'looking for work'};
+const handler = {
+    set(target, propName, value) {
+        if (propName === 'payRate') { // if the pay is being set, take 15% as commission
+            value = value * 0.85;
+        }
+        target[propName] = value;
+    }
+};
+const agent = new Proxy(richard, handler);
+agent.payRate = 1000; // set the actor's pay to $1,000
+agent.payRate; // $850 the actor's actual pay
+*/
