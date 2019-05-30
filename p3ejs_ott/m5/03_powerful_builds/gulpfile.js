@@ -10,6 +10,9 @@ const autoprefixer = require("gulp-autoprefixer");
 const browserSync = require("browser-sync").create();
 const jasmineBrowser = require("gulp-jasmine-browser");
 
+const babel = require("gulp-babel");
+const sourcemaps = require("gulp-sourcemaps");
+
 // gulp.task("default", function() {
 //   // code for your default task goes here
 //   return console.log("App is Starting...");
@@ -27,7 +30,7 @@ gulp.task("copyHtml", function() {
 gulp.task("sass", function() {
   gulp
     .src("src/sass/*.scss")
-    .pipe(sass())
+    .pipe(sass({ outputStyle: "compressed" }))
     .pipe(
       autoprefixer({
         browsers: ["last 2 versions"],
@@ -57,6 +60,8 @@ gulp.task("imageMin", () =>
 gulp.task("scripts", function() {
   gulp
     .src("src/js/*.js")
+    .pipe(sourcemaps.init())
+    .pipe(babel())
     .pipe(concat("main.js"))
     .pipe(uglify())
     .pipe(gulp.dest("dist/js"));
@@ -90,6 +95,7 @@ gulp.task("default", function() {
   gulp.watch("src/*.html", gulp.series("copyHtml"));
   gulp.watch("src/js/*.js", gulp.series("scripts"));
   gulp.watch(`src/images/*`, gulp.series("imageMin"));
+  gulp.watch(`src/index.html`).on("change", browserSync.reload);
 
   gulp.watch("src/js/*.js", gulp.series("lint"));
   browserSync.init({
