@@ -1,0 +1,14 @@
+:root {
+  --primary-color: coral;
+  --secondary-color: chocolate;
+}
+
+#nav-cats li span {
+  float: right;
+  color: #fff;
+  background: var(--primary-color);
+  padding: 0.2rem 0.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  border-radius: 5px;
+}
